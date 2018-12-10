@@ -49,14 +49,24 @@
 <% end %>
 
 
-<ul style="list-style-type: none">	
-	<% @company.employees.each do |employee| %>
-		<li style="background-color: yellow; "> First name: <%= employee.first_name %> <%= link_to " delete", company_employee_path(@company, employee), method: :delete %> 
-		</li>
-		<li> last_name: <%= employee.last_name %> </li>
-		<li> email: <%= employee.email %> </li>
-		<li> Area: <%= employee.area_id %> </li>
-		<li> Compañia: <%= employee.company_id %> </li>
-		<br>
-	<% end %>
-</ul>
+<table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">last_name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Area</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @company.employees.each do |employee| %>
+          <tr>
+            <td><%= employee.first_name %></td>
+            <td><%= employee.last_name %></td>
+            <td><%= employee.email %></td>
+            <td><%= employee.area_id %></td>
+            <td><%= link_to "Destroy", company_employee_path(@company, employee), method: :delete, class:'btn btn-danger' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
