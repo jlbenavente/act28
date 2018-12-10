@@ -20,6 +20,15 @@ class EmployeesController < ApplicationController
   	@employee = Employee.find(params[:id])
   end
 
+  def destroy
+  	@employee = Employee.find(params[:id])
+  	@employee.destroy
+    respond_to do |format|
+      format.html { redirect_to @employee.company, notice: 'The employee was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
 
 	private
 	def employee_params

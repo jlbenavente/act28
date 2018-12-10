@@ -47,3 +47,16 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+
+<ul style="list-style-type: none">	
+	<% @company.employees.each do |employee| %>
+		<li style="background-color: yellow; "> First name: <%= employee.first_name %> <%= link_to " delete", company_employee_path(@company, employee), method: :delete %> 
+		</li>
+		<li> last_name: <%= employee.last_name %> </li>
+		<li> email: <%= employee.email %> </li>
+		<li> Area: <%= employee.area_id %> </li>
+		<li> Compañia: <%= employee.company_id %> </li>
+		<br>
+	<% end %>
+</ul>

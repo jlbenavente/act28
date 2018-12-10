@@ -11,6 +11,7 @@ class CompaniesController < ApplicationController
   # GET /companies/1.json
  def show
     @employee = Employee.new
+    
   end
 
   # GET /companies/new
